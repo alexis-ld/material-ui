@@ -21,6 +21,7 @@ class TableBody extends Component {
      * The css class name of the root element.
      */
     className: PropTypes.string,
+    deselectCounter: PropTypes.number,
     /**
      * Controls whether or not to deselect all selected
      * rows after clicking outside the table.
@@ -140,6 +141,12 @@ class TableBody extends Component {
           selectedRows: this.calculatePreselectedRows(nextProps),
         });
       }
+    }
+
+    if (this.props.deselectCounter !== nextProps.deselectCounter) {
+      this.setState({
+        selectedRows: [],
+      });
     }
   }
 
