@@ -32,6 +32,7 @@
     "lint": "eslint src docs/src test --quiet --cache && echo \"eslint: no lint errors\"",
     "lint:find-rules": "eslint-find-rules -u .eslintrc.js",
     "prebuild": "npm run clean:build",
+    "postinstall": "npm run build && cp -r build/* .",
     "test": "cross-env NODE_ENV=test babel-node test/index.js",
     "test:coverage": "cross-env NODE_ENV=test babel-node ./node_modules/istanbul/lib/cli.js cover test/index.js",
     "test:karma": "karma start test/karma.conf.js --single-run",
